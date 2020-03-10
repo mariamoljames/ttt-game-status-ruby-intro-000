@@ -11,6 +11,11 @@ def won?(board)
     WIN_COMBINATIONS.each do |win_combination|
       if [board[win_combination[0]],board[win_combination[1]],board[win_combination[2]]].all?{ |item| item=="X"||item=="O" } && board[win_combination[0]]==board[win_combination[1]] && board[win_combination[1]]==board[win_combination[2]]
         return win_combination
+<<<<<<< HEAD
+=======
+      elsif board.all? { |item| item=="X"||item=="O" }
+        return false
+>>>>>>> e6daa5d9312ef2cee495fd5bf764f1490bf18a42
       end
     end
     return false
@@ -19,11 +24,24 @@ end
 
 
 def full?(board)
+<<<<<<< HEAD
   return board.all? { |item| item=="X"||item=="O" }
 end
 
 def draw?(board)
   return full?(board) && !won?(board)
+=======
+  board.all? { |item| item=="X"||item=="O" }
+end
+
+def draw?(board)
+  if full?(board)
+    if won?(board)
+      return false
+    end
+    return true
+  end
+>>>>>>> e6daa5d9312ef2cee495fd5bf764f1490bf18a42
 end
 
 def over?(board)
@@ -33,7 +51,10 @@ end
 def winner(board)
   if won?(board)
     return board[won?(board)[0]]
+<<<<<<< HEAD
   else
     return nil
+=======
+>>>>>>> e6daa5d9312ef2cee495fd5bf764f1490bf18a42
   end
 end
